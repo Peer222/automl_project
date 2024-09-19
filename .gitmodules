@@ -1,0 +1,3 @@
+[submodule "NASLib"]
+	path = NASLib
+	url = https://github.com/CrunchyFlakes/NASLib

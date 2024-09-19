@@ -1,0 +1,11 @@
+numpy<2.0.0
+torch>=2.3.1
+smac>=2.1.0
+torchinfo>=1.8.0
+torchvision>=0.18.1
+medmnist>=3.0.1
+focal_loss_torch>=0.1.2
+seaborn>=0.13.2
+dataframe_image>=0.2.4
+git+https://github.com/CrunchyFlakes/ConfigSpace
+-e ./NASLib

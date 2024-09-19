@@ -1,0 +1,53 @@
+# Keys marked with * are added programmatically
+name: acc_config
+dataset: retinamnist
+search_space: NASNetwork
+out_dir: run
+optimizer: darts
+save_arch_weights: True
+# datasetpath*
+# data*
+# batch_size*
+# save*
+# seed*
+
+# for bohb ("f1" or "acc")
+performance_measure: "acc"
+
+dataset_meta:
+  num_classes: 5
+  num_img_channels: 3
+
+arch_search:
+  # seed*
+  op_optimizer: "SGD"
+  learning_rate: 0.005
+  learning_rate_min: 0.001
+  momentum: 0.9
+  weight_decay: 0.0003
+  grad_clip: 5
+
+  arch_optimizer: "Adam"
+  arch_learning_rate: 0.005
+  arch_weight_decay: 0.001
+
+  #loss_criteria: "LogitsFocalLoss(gamma=3.0, weights=smoothed_class_weights)"
+
+  checkpoint_freq: 5
+  epochs: 15
+  batch_size: 64
+
+  apply_early_stopping: True
+  stopping_after_n_skips: 2
+  early_stopping_threshold: 0.3
+
+model:
+  n_cells: 3
+  # values for full range of config space have to be defined
+  cell_out_channels: [32, 64, 128, 128, 128, 128]
+  use_BN: [True, True, True, True, True, True]
+  use_max_pooling: [True, True, False, False, False, False]
+  n_fc_layers: 3
+  fc_out_features: [64, 32, 16]
+
+  dropout_rate: 0.3
